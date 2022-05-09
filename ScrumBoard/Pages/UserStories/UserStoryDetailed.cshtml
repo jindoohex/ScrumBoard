@@ -1,0 +1,61 @@
+﻿@page "{id:int}"
+@model ScrumBoard.Pages.UserStories.UserStoryDetailedModel
+@{
+}
+
+<div class="card mb-2" style="width: 30rem;">
+    <div class="card-header p-2">
+        <h5 class="card-title">(@Model.UserStory.ID) @Model.UserStory.Title</h5>
+    </div>
+    
+    <div class="card-footer">
+        <button id="myModalBtn" class="btn" data-toggle="modal" data-target="#myModal">
+            <i class="fa fa-info-circle"></i>
+        </button>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">[ID: @Model.UserStory.ID] @Model.UserStory.Title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>
+                        <p>StoryPoints: @Model.UserStory.StoryPoints</p>
+                    </li>
+                    <li>
+                        <p>BusinessValue: @Model.UserStory.BusinessValue</p>
+                    </li>
+                    <li>
+                        <p>Current Work State: @Model.UserStory.SpecificUserStoryStatus</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" backdrop="static">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts 
+{
+    <script>
+        $(document).ready(function() {
+            $("#myModal").modal({ backdrop: "static" });
+            $("#myModal").modal('show');
+            $('#myModal').on('hidden.bs.modal',
+                function ()
+                {
+                    window.location.href = "/Userstories"
+                });
+        });
+    </script>
+}

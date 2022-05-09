@@ -1,0 +1,52 @@
+﻿@page
+@model ScrumBoard.Pages.Teams.IndexModel
+@{
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col col-lg-9" aligh="left">
+
+            <h1 align="left">TeamMembers</h1>
+            <br/>
+
+            @foreach (var tm in @Model.TeamMembers)
+            {
+                <div class="card mb-2" style="width: 25rem;">
+                    <div class="card-header p-2">
+                        <h5 class="card-title">@*(@tm.Id)*@ @tm.Name</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">@tm.SpecifiedTeamMemberRole</p>
+                        <p class="card-text">@tm.Email</p>
+                    </div>
+                    <div class="card-footer" style="height: 65px">
+                        <a class="btn" type="button" asp-page="RemoveMember" asp-route-id="@tm.Id"><i class="fa fa-trash"></i></a>
+                        <a class="btn" type="button" asp-page="EditMember" asp-route-id="@tm.Id"><i class="fa fa-edit"></i></a>
+                    </div>
+                    @*<div class="card-footer" style="height: 65px">
+                    <a class="btn" type="button" asp-page="DeleteUserStory" asp-route-id="@us.ID"><i class="fa fa-trash"></i></a>
+                    <a class="btn" type="button" asp-page="UserStoryDetailed" asp-route-id="@us.ID"><i class="fa fa-info-circle"></i></a>
+                    
+                </div>*@
+                </div>
+            }
+        </div>
+        
+
+        <div class="col col-lg-3">
+            <br />
+            <br />
+            <br />
+
+            <div class="row">
+                <form method="post">
+                    <a class="btn btn-primary" type="button" asp-page="AddMember">Add Member</a>
+                    @*<a class="btn btn-primary" type="button" asp-page="EditMember">Edit Member</a>*@
+                    @*<a class="btn btn-primary" type="button" asp-page="RemoveMember">Remove Member</a>*@
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

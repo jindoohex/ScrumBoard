@@ -1,0 +1,91 @@
+﻿@page 
+@using ScrumBoard.Pages.UserStories
+@using ScrumBoardLib.model
+@model ScrumBoard.Pages.UserStories.IndexModel
+@{
+}
+
+@*<h1 align="left">UserStories</h1>
+
+<br />
+<br />*@
+
+<div class="container">
+    <div class="row">
+
+        <!----  USER STORY LIST  ---->
+
+        <div class="col col-lg-3" align="left">
+            <h1 align="left">UserStories</h1>
+            <br />
+
+            @foreach (var us in @Model.UserStories)
+            {
+                <div class="card mb-2" style="width: 20rem;">
+                    <div class="card-header p-2">
+                        <h5 class="card-title">(@us.ID) @us.Title</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">@us.Description</p>
+                        <p class="card-text">@us.SpecificUserStoryStatus</p>
+                    </div>
+                    @*<div class="card-body">
+                        <p class="card-text">@us.SpecificUserStoryStatus</p>
+                    </div>*@
+                    <div class="card-footer" style="height: 65px">
+                        <a class="btn" type="button" asp-page="DeleteUserStory" asp-route-id="@us.ID"><i class="fa fa-trash"></i></a>
+                        <a class="btn" type="button" asp-page="UserStoryDetailed" asp-route-id="@us.ID"><i class="fa fa-info-circle"></i></a>
+                        <a class="btn" type="button" asp-page="UpdateUserStory" asp-route-id="@us.ID"><i class="fa fa-edit"></i></a>
+                    </div>
+                </div>
+                <br />
+            }
+        </div>
+
+        <div class="col col-lg-6" style="width: 25rem;">
+
+            <div>
+
+            </div>
+
+        </div>
+
+        <!----  SORT DROPDOWN BY VALUES  ---->
+
+        <div class="col-3" style="width: 20rem;">
+            <br />
+            <br />
+            <br />
+            <form method="post">
+                <div class="form-group">
+                    <label>Sort User Stories</label>
+                    <br/>
+                    <select id="SortType" name="SortType" asp-for="SortType" class="form-control">
+                        @foreach (var sbv in Model.SortListByValue)
+                        {
+                            <option value="@sbv">@sbv</option>
+                        }
+                    </select>
+                    <br/>
+                    <input type="Submit" value="Search" class="btn btn-primary"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        $('#myModal').getData(function ()
+        {
+            $.get()
+        });
+
+        $(document).ready(function ()
+        {
+            $("#myModal").modal({ backdrop: "static" });
+            $("#myModal").modal('show');
+        });
+    </script>
+}

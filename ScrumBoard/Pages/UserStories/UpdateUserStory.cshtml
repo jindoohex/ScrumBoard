@@ -1,0 +1,62 @@
+﻿@page "{id:int}"
+@using ScrumBoardLib.model
+@model ScrumBoard.Pages.UserStories.UpdateUserStoryModel
+@{
+}
+
+<h1 class="jumbotron-fluid">Update the UserStory</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <input type="hidden" asp-for="@Model.UserStory.ID" />
+            <div class="form-group">
+                <label>Title:</label>
+                <input asp-for="@Model.UserStory.Title" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Description:</label>
+                <textarea asp-for="@Model.UserStory.Description" cols="120" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label>StoryPoints:</label>
+                <select asp-for="@Model.UserStory.StoryPoints" class="form-control">
+                    @foreach (var sp in Model.StoryPointValues)
+                    {
+                        <option value="@sp">@sp</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label>BusinessValue:</label>
+                <select asp-for="@Model.UserStory.BusinessValue" class="form-control">
+                    @foreach (var bv in Model.BusinessValues)
+                    {
+                        <option value="@bv">@bv</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Status of the UserStory:</label>
+                <select asp-for="@Model.UserStory.SpecificUserStoryStatus" class="form-control">
+                    @foreach (var state in Enum.GetValues(typeof(UserStoryStatus)))
+                    {
+                        <option value="@state">@state</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Select Role:</label>
+                <select asp-for="@Model.NoListTeamMember.SpecifiedTeamMemberRole" class="form-control">
+                    @foreach (TeamMember.TeamMemberRole specifiedTeamMemberRole in Enum.GetValues(typeof(TeamMember.TeamMemberRole)))
+                    {
+                        <option value="@specifiedTeamMemberRole">@specifiedTeamMemberRole</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <input class="btn" type="submit" style="line-height: 1; font-size: 2rem; font-weight: 300; font-style: normal; border: 5px" value="submit">
+            </div>
+        </form>
+    </div>
+</div>

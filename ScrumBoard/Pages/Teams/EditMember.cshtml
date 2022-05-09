@@ -1,0 +1,34 @@
+﻿@page
+@using ScrumBoardLib.model
+@model ScrumBoard.Pages.Teams.EditMemberModel
+@{
+}
+
+<h1 class="jumbotron-fluid">Add TeamMember</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label>Name:</label>
+                <input asp-for="@Model.TeamMember.Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Email:</label>
+                <textarea asp-for="@Model.TeamMember.Email" cols="120" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Select Role:</label>
+                <select name="@Model.TeamMember.SpecifiedTeamMemberRole" asp-for="TeamMember.SpecifiedTeamMemberRole" class="form-control">
+                    @foreach (TeamMember.TeamMemberRole specifiedTeamMemberRole in Enum.GetValues(typeof(TeamMember.TeamMemberRole)))
+                    {
+                        <option value="@specifiedTeamMemberRole">@specifiedTeamMemberRole</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <input class="btn" type="submit" style="line-height: 1;font-size: 2rem;font-weight: 300;font-style: normal; border: 5px"><i class="fa fa-plus"></i>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+[
+  {
+    "ID": 2,
+    "Title": "Edit Story",
+    "Description": "As P.O I want to edit a story so ...",
+    "StoryPoints": 0,
+    "BusinessValue": 0,
+    "SpecificUserStoryStatus": 1
+  },
+  {
+    "ID": 3,
+    "Title": "Move Story",
+    "Description": "As team member I want to move a story so ...",
+    "StoryPoints": 0,
+    "BusinessValue": 0,
+    "SpecificUserStoryStatus": 5
+  },
+  {
+    "ID": 4,
+    "Title": "Dummy",
+    "Description": "DummyDummy",
+    "StoryPoints": 5,
+    "BusinessValue": 4,
+    "SpecificUserStoryStatus": 5
+  },
+  {
+    "ID": 5,
+    "Title": "KANYLE",
+    "Description": "H\u00F8j StoryPoint",
+    "StoryPoints": 34,
+    "BusinessValue": 0,
+    "SpecificUserStoryStatus": 5
+  },
+  {
+    "ID": 7,
+    "Title": "12345678",
+    "Description": "DUMMDUMMDUMM",
+    "StoryPoints": 5,
+    "BusinessValue": 6,
+    "SpecificUserStoryStatus": 5
+  },
+  {
+    "ID": 8,
+    "Title": "Dummy22222",
+    "Description": "DummyDummy222222",
+    "StoryPoints": 3,
+    "BusinessValue": 3,
+    "SpecificUserStoryStatus": 4
+  }
+]
